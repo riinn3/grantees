@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      background-color: #e8f5e9;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #1e5622;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar ul li {
+      padding: 10px 5px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .sidebar ul li:hover,
+    .sidebar ul li.active {
+      background-color: #2e8b57;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #2e8b57;
+      border: none;
+      color: white;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .header {
+      background-color: #1e5622;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>STUDENT NAVIGATION</h2>
+    <ul>
+      <li onclick="loadContent('requirements')">Requirements</li>
+      <li onclick="loadContent('settings')">Settings</li>
+      <li onclick="loadContent('profile')">Profile</li>
+    </ul>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <div class="header">
+      <h1>Welcome, Student</h1>
+    </div>
+    <div id="content" class="content">
+      <p>Select a menu item to begin.</p>
+    </div>
+  </main>
+
+  <script>
+    function loadContent(section) {
+      let html = "";
+      switch(section) {
+        case "requirements":
+          html = "<h2>Requirements</h2>";
+          break;
+        case "settings":
+          html = "<h2>Settings</h2>";
+          break;
+        case "profile":
+          html = "<h2>Profile</h2>";
+          break;
+        default:
+          html = "<p>Unknown section.</p>";
+      }
+      document.getElementById("content").innerHTML = html;
+    }
+
+    function logout() {
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
