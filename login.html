@@ -73,11 +73,13 @@
       }
 
       errorMessage.textContent = "";
-
-      if (role === 'admin') {
+      if(username === "admin" && password === "adminpass" && role === "admin") {
         window.location.href = 'admin.html';
-      } else {
+      } else if(username === "student" && password === "studentpass" && role === "student") {
         window.location.href = 'student.html';
+      } else {
+        errorMessage.textContent = "Invalid credentials. Please try again.";
+        return;
       }
     }
   </script>
